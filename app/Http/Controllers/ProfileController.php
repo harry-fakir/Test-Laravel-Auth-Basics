@@ -8,7 +8,11 @@ class ProfileController extends Controller
 {
     public function show()
     {
-        return view('auth.profile');
+        $user = auth()->user();
+
+        return view('auth.profile', [
+            'user' => $user
+        ]);
     }
 
     public function update(ProfileUpdateRequest $request)
